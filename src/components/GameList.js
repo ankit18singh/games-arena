@@ -4,6 +4,7 @@ import GameCard from './GameCard';
 import { Row, Col, Grid, FormControl, PageHeader } from 'react-bootstrap';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import 'font-awesome/css/font-awesome.min.css'
 
 export default class GameList extends React.Component {
 
@@ -109,6 +110,7 @@ export default class GameList extends React.Component {
             <div>
                 <div className="searchHeader row">
                     <div className="col-sm-6 col-xs-12">
+                        <i class="fa fa-search" aria-hidden="true"></i>
                         <FormControl type='text' style={formInput} onChange={this.search} placeholder="Search Game"/>
                     </div>
 
@@ -141,5 +143,6 @@ export default class GameList extends React.Component {
 const formInput = {
     margin: 'auto',
     borderRadius: '17px',
-    display: 'inline-block'
+    display: 'inline-block',
+    paddingLeft: '35px'
 }

@@ -65,3 +65,11 @@ span {
   margin-left: 16px;
   width: 48%;
 }
+
+i {
+  position: absolute;
+  top: 10px;
+  font-size: 20px;
+  left: 26px;
+  color: #7e7c7c
+}
