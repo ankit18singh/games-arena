@@ -58,3 +58,10 @@
 span {
   color: #7e7c7c
 }
+
+.info {
+  position: absolute;
+  bottom: 43px;
+  margin-left: 16px;
+  width: 48%;
+}

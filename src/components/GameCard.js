@@ -19,10 +19,12 @@ export default class GameCard extends React.Component {
         return (
             <div style={cardStyle}>
                 <h4 style={headerStyle} className= "page-heading"> {this.props.data.title}</h4> <br/>
-                <span>Platform: {this.props.data.platform}<br/></span>
-                <span>Genre: {this.props.data.genre}<br/></span>
-                <span className="score"><small>Score</small> <b>{this.props.data.score}</b><br/></span>                
-                <span>Editor Choice: {this.props.data.editors_choice}</span>
+                <div className="info">
+                    <span>Platform: {this.props.data.platform}<br/></span>
+                    <span>Genre: {this.props.data.genre}<br/></span>                
+                    <span>Editor Choice: {this.props.data.editors_choice}</span>
+                </div>
+                <span className="score"><small>Score</small> <b>{this.props.data.score}</b><br/></span>
             </div>
         )
     }

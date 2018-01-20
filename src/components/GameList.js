@@ -108,8 +108,11 @@ export default class GameList extends React.Component {
         return(
             <div>
                 <div className="searchHeader row">
-                    <FormControl type='text' style={formInput} onChange={this.search} className="col-sm-6 col-xs-12"/>
-                    <div className="col-sm-3 col-xs-6">
+                    <div className="col-sm-6 col-xs-12">
+                        <FormControl type='text' style={formInput} onChange={this.search} placeholder="Search Game"/>
+                    </div>
+
+                    <div className="col-sm-3 col-xs-12">
                         <Select
                             onChange={this.handleSort}
                             value= {this.state.sortBy}
@@ -120,7 +123,7 @@ export default class GameList extends React.Component {
                             placeholder= 'Sort by Score'
                         />
                     </div>
-                    <div className="col-sm-3 col-xs-6">
+                    <div className="col-sm-3 col-xs-12">
                         <Select
                             onChange={this.handleSortByPlatform}
                             value= {this.state.sortByPlatform}
@@ -136,7 +139,6 @@ export default class GameList extends React.Component {
 }
 
 const formInput = {
-    width: '50%',
     margin: 'auto',
     borderRadius: '17px',
     display: 'inline-block'
