@@ -62,14 +62,15 @@ export default class GameList extends React.Component {
         let sortedArray = []
         this.setState({sortBy: option})
         if (option.value === 'Ascending') {
-            sortedArray = this.state.listOfGames.sort((a, b) => {
+            sortedArray = this.state.filteredList.sort((a, b) => {
                 return (a.score - b.score)
             })
         } else {
-            sortedArray = this.state.listOfGames.sort((a, b) => {
+            sortedArray = this.state.filteredList.sort((a, b) => {
                 return (b.score - a.score)
             })
         }
+        this.setState({filteredList: sortedArray})
     }
 
     render() {
