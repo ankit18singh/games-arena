@@ -12,7 +12,8 @@ export default class GameList extends React.Component {
         this.state = {
             listOfGames: [],
             filteredList: [],
-            sortBy: ''
+            sortBy: '',
+            sortByPlatform: ''
         };
     }
 
@@ -73,12 +74,42 @@ export default class GameList extends React.Component {
         this.setState({filteredList: sortedArray})
     }
 
+    getOptions = () => {
+        let platformName = []
+        let unique = []
+        let filteredPlatformNames = []
+        this.state.listOfGames.forEach((gameData) => {
+            platformName.push({
+                value: gameData.platform,
+                label: gameData.platform
+            })
+        })
+        let distinctPlatformName = platformName.filter((filterData, index, array) => {
+          unique = [...new Set(array.map(platform => platform.value))]
+        })
+        unique.forEach((platformName)=>{
+            filteredPlatformNames.push({
+                value: platformName,
+                label: platformName
+                })
+        })
+        return filteredPlatformNames
+    }
+
+    handleSortByPlatform = (platformName) => {
+        this.setState({sortByPlatform: platformName.value})
+        let filteredArray = this.state.filteredList.filter((gameData)=> {
+            return (gameData.platform == platformName.value)
+        })
+        this.setState({filteredList: filteredArray})
+    }
+
     render() {
         return(
             <div>
                 <div className="searchHeader row">
                     <FormControl type='text' style={formInput} onChange={this.search} className="col-sm-6 col-xs-12"/>
-                    <div className="col-sm-6 col-xs-12">
+                    <div className="col-sm-3 col-xs-6">
                         <Select
                             onChange={this.handleSort}
                             value= {this.state.sortBy}
@@ -87,6 +118,14 @@ export default class GameList extends React.Component {
                                 {value: 'Descending', label: 'Descending'},
                             ]}
                             placeholder= 'Sort by Score'
+                        />
+                    </div>
+                    <div className="col-sm-3 col-xs-6">
+                        <Select
+                            onChange={this.handleSortByPlatform}
+                            value= {this.state.sortByPlatform}
+                            options={this.getOptions()}
+                            placeholder= 'Sort by Platform'
                         />
                     </div>
                 </div>
