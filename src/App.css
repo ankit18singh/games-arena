@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Select-control {
+  border-radius: 17px;
+}
+
+.searchHeader {
+  width: 70%;
+  margin: auto
+}

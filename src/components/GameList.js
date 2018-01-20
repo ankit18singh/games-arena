@@ -2,6 +2,8 @@ import * as React from 'react';
 import { getGamesData } from '../utils/genralUtils';
 import GameCard from './GameCard';
 import { Row, Col, Grid, FormControl, PageHeader } from 'react-bootstrap';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 export default class GameList extends React.Component {
 
@@ -9,7 +11,8 @@ export default class GameList extends React.Component {
         super();
         this.state = {
             listOfGames: [],
-            filteredList: []
+            filteredList: [],
+            sortBy: ''
         };
     }
 
@@ -55,10 +58,35 @@ export default class GameList extends React.Component {
         this.setState({filteredList: filteredArr})
     }
 
+    handleSort = (option) => {
+        let sortedArray = []
+        this.setState({sortBy: option})
+        if (option.value === 'Ascending') {
+            this.state.listOfGames.sort((a, b) => {
+                if (a.score - b.score) {
+                    console.log(a.score+":"+b.score)
+                }
+            })
+        }
+    }
+
     render() {
         return(
             <div>
-                <FormControl type='text' style={formInput} onChange={this.search}/>
+                <div className="searchHeader row">
+                    <FormControl type='text' style={formInput} onChange={this.search} className="col-sm-6 col-xs-12"/>
+                    <div className="col-sm-6 col-xs-12">
+                        <Select
+                            onChange={this.handleSort}
+                            value= {this.state.sortBy}
+                            options={[
+                                {value: 'Ascending', label: 'Ascending'},
+                                {value: 'Descending', label: 'Descending'},
+                            ]}
+                            placeholder= 'Sort by Score'
+                        />
+                    </div>
+                </div>
                 {this.listGames()}
             </div>
         );
@@ -68,5 +96,6 @@ export default class GameList extends React.Component {
 const formInput = {
     width: '50%',
     margin: 'auto',
-    borderRadius: '17px'
+    borderRadius: '17px',
+    display: 'inline-block'
 }
