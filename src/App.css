@@ -35,3 +35,26 @@
   width: 70%;
   margin: auto
 }
+
+.score {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #2877af;
+  border-radius: 100px;
+  color: white;
+  vertical-align: middle;
+  padding: 12px;
+  right: 64px;
+  bottom: 37px;
+  text-align: center;
+}
+
+.page-heading {
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+span {
+  color: #7e7c7c
+}

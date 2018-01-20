@@ -12,7 +12,7 @@ export default class BasePage extends React.Component {
     render () {
         return(
             <div>
-                <h1 style={heading}>Games Arena</h1>
+                <h1 style={heading} className= "page-header">Games Arena</h1>
                 <GameList />
             </div>
         );

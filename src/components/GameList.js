@@ -34,7 +34,7 @@ export default class GameList extends React.Component {
                             {                           
                                 this.state.filteredList.map((gameData, index) => {
                                    return (
-                                    <Col sm={12} xs={4} md={4} key={index}>
+                                    <Col sm={12} xs={12} md={4} key={index}>
                                         <GameCard data={gameData}/>                     
                                     </Col>
                                     )
